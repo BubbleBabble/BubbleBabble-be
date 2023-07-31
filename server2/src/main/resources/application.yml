@@ -1,6 +1,7 @@
 spring:
-  profiles:
-    include: aws
+  data:
+    mongodb:
+      uri: mongodb+srv://soolo:soolo@cluster0.nnm1vfo.mongodb.net/chat?retryWrites=true&w=majority
 
   #    redis:
   #      host: localhost
@@ -33,3 +34,12 @@ logging:
 #    sdk:
 #      disableEc2Metadata: true
 
+cloud:
+  aws:
+    stack:
+      auto: false
+    region:
+      static: ap-northeast-2
+    credentials:
+      access-key: AKIA3JJJHL4TRLZWHJVN
+      secret-key: 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
