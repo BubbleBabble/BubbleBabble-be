@@ -1,4 +1,4 @@
-package com.example.sever2;
+package com.example.server2;
 
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;

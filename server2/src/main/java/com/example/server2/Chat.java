@@ -1,4 +1,4 @@
-package com.example.sever2;
+package com.example.server2;
 
 import java.time.LocalDateTime;
 
@@ -24,7 +24,7 @@ public class Chat {
 	private String sender;
 	private String receiver;
 	private String msg;
-	private Integer room_num;
+	private Integer roomId;
 
 
 	// private LocalDateTime createdAt;
