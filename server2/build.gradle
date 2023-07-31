@@ -44,8 +44,11 @@ dependencies {
 	implementation 'org.springframework.cloud:spring-cloud-aws-autoconfigure:2.2.3.RELEASE'
 //    implementation 'org.springframework.boot:spring-boot-starter-security'
 //    implementation 'org.springframework.boot.experimental:spring-boot-starter-data-r2dbc'
-}
 
-tasks.named('test') {
-	useJUnitPlatform()
+	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+	implementation 'com.fasterxml.jackson.core:jackson-databind'
 }
+//
+//tasks.named('test') {
+//	useJUnitPlatform()
+//}
