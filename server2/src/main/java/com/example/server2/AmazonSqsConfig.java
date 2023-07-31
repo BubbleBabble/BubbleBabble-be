@@ -1,4 +1,4 @@
-package com.example.sever2;
+package com.example.server2;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

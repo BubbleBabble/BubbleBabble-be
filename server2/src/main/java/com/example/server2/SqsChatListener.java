@@ -1,4 +1,4 @@
-package com.example.sever2;
+package com.example.server2;
 
 import java.util.Map;
 
@@ -14,11 +14,11 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Component
 public class SqsChatListener {
-	// private final ChatService chatService;
-	//
-	// public SqsChatListener(ChatService chatService){
-	// 	this.chatService = chatService;
-	// }
+	private final ChatService chatService;
+
+	public SqsChatListener(ChatService chatService){
+		this.chatService = chatService;
+	}
 
 	@SqsListener(value = "Random-chat-Queue", deletionPolicy = SqsMessageDeletionPolicy.ON_SUCCESS)
 	public void listen(@Payload Chat chat,
@@ -27,6 +27,6 @@ public class SqsChatListener {
 		log.info("{}", chat);
 		log.info("{}", headers);
 		// log.info("{}", ack != null);
-		// chatService.getChat(chat);
+		chatService.getChat(chat);
 	}
 }
