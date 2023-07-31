@@ -1,5 +1,7 @@
 package com.example.server1;
 
+import java.time.LocalDateTime;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -22,5 +24,6 @@ public class Chat {
 	private String sender;
 	private String receiver;
 	private String msg;
-	private Integer room_num;
+	private Integer roomId;
+	private LocalDateTime createdAt;
 }

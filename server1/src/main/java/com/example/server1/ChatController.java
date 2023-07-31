@@ -1,5 +1,7 @@
 package com.example.server1;
 
+import java.time.LocalDateTime;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,7 +24,7 @@ public class ChatController {
 	// @CrossOrigin // 귓속말 할때 사용
 	@PostMapping("")
 	public Mono<Chat> sendMessage(@RequestBody Chat chat) {
-		// chat.setCreatedAt(LocalDateTime.now());
+		chat.setCreatedAt(LocalDateTime.now());
 		// Chat chat = new Chat(chatRequestDto);
 		sqsChatSender.sendMessage(chat);
 		return chatRepository.save(chat);
