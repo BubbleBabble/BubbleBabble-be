@@ -7,7 +7,7 @@ import reactor.core.publisher.Sinks;
 
 @Service
 public class ChatService {
-	private final Sinks.Many<Chat> sink = Sinks.many().unicast().onBackpressureBuffer();
+	private final Sinks.Many<Chat> sink = Sinks.many().multicast().onBackpressureBuffer();
 
 	public void getChat(Chat chat){
 		sink.tryEmitNext(chat);

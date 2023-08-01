@@ -24,7 +24,7 @@ public class ChatController {
 	// @CrossOrigin // 귓속말 할때 사용
 	@PostMapping("")
 	public Mono<Chat> sendMessage(@RequestBody Chat chat) {
-		chat.setCreatedAt(LocalDateTime.now());
+		// chat.setCreatedAt(LocalDateTime.now());
 		// Chat chat = new Chat(chatRequestDto);
 		sqsChatSender.sendMessage(chat);
 		return chatRepository.save(chat);
