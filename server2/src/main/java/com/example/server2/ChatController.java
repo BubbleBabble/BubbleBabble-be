@@ -24,8 +24,8 @@ public class ChatController {
 	}
 
 	@CrossOrigin
-	@GetMapping(value = "/chat/send", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-	public Flux<Chat> liten(){
+	@GetMapping(value = "/chat/listen", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+	public Flux<Chat> listen(){
 
 		return chatService.getChatFlux();
 	}
