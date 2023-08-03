@@ -22,16 +22,20 @@ public class ChatController {
 
 	// 채팅 메시지 생성해서 AWS SQS로 전송
 	// @CrossOrigin // 귓속말 할때 사용
+	// @PostMapping("")
+	// public Mono<Chat> sendMessage(@RequestBody Chat chat) {
+	// 	// chat.setCreatedAt(LocalDateTime.now());
+	// 	// Chat chat = new Chat(chatRequestDto);
+	// 	sqsChatSender.sendMessage(chat);
+	// 	return chatRepository.save(chat);
+	// 	//
+	// 	// return new ResponseEntity<>(new ResponseDto(200, "전송됨",chat), HttpStatus.OK);
+	// }
+
 	@PostMapping("")
-	public Mono<Chat> sendMessage(@RequestBody Chat chat) {
-		// chat.setCreatedAt(LocalDateTime.now());
-		// Chat chat = new Chat(chatRequestDto);
+	public void sendMessage(@RequestBody ChatDto chatDto) {
+
+		Chat chat = new Chat(chatDto);
 		sqsChatSender.sendMessage(chat);
-		return chatRepository.save(chat);
-		//
-		// return new ResponseEntity<>(new ResponseDto(200, "전송됨",chat), HttpStatus.OK);
 	}
-
-
-
 }
