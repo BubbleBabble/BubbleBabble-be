@@ -24,6 +24,20 @@ public class Chat {
 	private String sender;
 	private String receiver;
 	private String msg;
-	// private Integer roomId;
 	// private LocalDateTime createdAt;
+
+	public Chat(ChatDto chatDto){
+		this.id = id().toString();
+		this.sender = chatDto.getSender();
+		this.receiver = chatDto.getReceiver();
+		this.msg = chatDto.getMsg();
+		// this.createdAt = LocalDateTime.now();
+	}
+
+	public static Long countId = 0L;
+	private Long id(){
+		countId += 1;
+		return countId;
+	}
+
 }
