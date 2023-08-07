@@ -5,6 +5,7 @@ import org.springframework.cloud.aws.messaging.core.QueueMessagingTemplate;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.amazonaws.services.sqs.AmazonSQS;
 import com.amazonaws.services.sqs.AmazonSQSAsync;
@@ -13,6 +14,7 @@ import com.amazonaws.services.sqs.AmazonSQSAsync;
 public class SqsChatSender {
 
 	private final QueueMessagingTemplate queueMessagingTemplate;
+
 
 	@Autowired
 	public SqsChatSender(AmazonSQS amazonSQS) {
@@ -24,6 +26,7 @@ public class SqsChatSender {
 		queueMessagingTemplate.send("Random-chat-Queue", sendMessage);
 	}
 
+	@Transactional
 	public void sendMessage(Chat chat) {
 		System.out.println("여기는 샌드 메세지");
 		queueMessagingTemplate.convertAndSend("Random-chat-Queue", chat);

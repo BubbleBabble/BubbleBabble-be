@@ -2,6 +2,7 @@ package com.example.server1;
 
 import java.time.LocalDateTime;
 
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,6 +33,7 @@ public class ChatController {
 	// 	// return new ResponseEntity<>(new ResponseDto(200, "전송됨",chat), HttpStatus.OK);
 	// }
 
+	@Transactional
 	@PostMapping("")
 	public void sendMessage(@RequestBody ChatDto chatDto) {
 
