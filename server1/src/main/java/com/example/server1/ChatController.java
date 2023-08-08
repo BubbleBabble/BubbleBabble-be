@@ -17,8 +17,8 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/chat")
 public class ChatController {
 
-	private final ChatRepository chatRepository;
 	private final SqsChatSender sqsChatSender;
+	private final RedisDao redisDao;
 
 
 	// 채팅 메시지 생성해서 AWS SQS로 전송
@@ -39,5 +39,6 @@ public class ChatController {
 
 		Chat chat = new Chat(chatDto);
 		sqsChatSender.sendMessage(chat);
+		redisDao.setValues(chat.getId(), chat);
 	}
 }
